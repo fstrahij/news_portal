@@ -15,4 +15,4 @@ class Item(models.Model):
 	language = models.CharField(max_length = 10)
 	pubDate = models.DateTimeField()
 	guid = models.URLField()
-	category = models.ForeignField(Channel)
+	category = models.ForeignKey(Channel, on_delete = models.CASCADE)
