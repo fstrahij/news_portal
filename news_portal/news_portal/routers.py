@@ -1,7 +1,7 @@
 from rest_framework import routers
-from news.viewsets import ChannelViewSet, ItemViewSet
+from news import viewsets
 
 router = routers.DefaultRouter()
 
-router.register(r'channel', ChannelViewSet)
-router.register(r'item', ItemViewSet)
+router.register(r'channels', viewsets.ChannelAll)
+router.register(r'items', viewsets.ItemAll)

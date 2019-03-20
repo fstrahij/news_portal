@@ -1,5 +1,31 @@
 {% extends "news/base.html" %}
 {% block content %}
-	<h1>hello word</h1>
-	<p>paraf</p>
+	<div id="starting">
+        <div class="row">
+          <h1>News
+          </h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">title</th>
+                <th scope="col">link</th>
+                <th scope="col">description</th>
+                <th scope="col">pubDate</th>
+                <th scope="col">guid</th>
+                <th scope="col">category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in news">
+                <td>${item.title}</td>
+                <td>${item.link}</td>
+                <td v-html="item.description"></td>
+                <td>${item.pubDate}</td>
+                <td>${item.guid}</td>
+                <td>${item.category}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
 {% endblock content %}

@@ -2,11 +2,10 @@ from rest_framework import viewsets
 from .models import Channel, Item
 from .serializers import ChannelSerializer, ItemSerializer
 
-class ChannelViewSet(viewsets.ModelViewSet):
+class ChannelAll(viewsets.ModelViewSet):
 	queryset = Channel.objects.all()
 	serializer_class = ChannelSerializer
 
-class ItemViewSet(viewsets.ModelViewSet):
+class ItemAll(viewsets.ModelViewSet):
 	queryset = Item.objects.all()
-	serializer_class = ItemSerializer
-		
+	serializer_class = ItemSerializer		
