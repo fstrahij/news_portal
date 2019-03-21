@@ -3,20 +3,26 @@ new Vue({
    delimiters: ['${','}'],
    data: {
 	   news: [],
-	   message: null
+	   message: null,
+	   search_term: '',
  	},
  	mounted: function() {
  		this.getItems();		 		
 	},
 	methods: {
 		getItems: function() {
-		  axios.get('/api/items/')
-		      .then((response) => {
-		        this.news = response.data.results;	
-		      })
-		      .catch((err) => {
-		       console.log(err);
-		      })
+			let api_url = '/api/items/';
+
+			if (this.search_term !== '' && this.search_term !== null) {
+				api_url += '?search='+this.search_term;
+			}
+			axios.get(api_url)
+		      	.then((response) => {
+		        	this.news = response.data.results;	
+		      	})
+		      	.catch((err) => {
+		       	console.log(err);
+		      	})
 		}
 	}
 });

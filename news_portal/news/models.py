@@ -11,5 +11,5 @@ class Item(models.Model):
 	link = models.URLField()
 	description = models.TextField()
 	pubDate = models.CharField(max_length = 100)
-	rss = models.URLField()
+	rss = models.TextField()
 	category = models.ForeignKey(Channel, on_delete = models.CASCADE)

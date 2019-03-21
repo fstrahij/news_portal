@@ -22,7 +22,7 @@ class Command(BaseCommand):
 				item.link = i["link"]
 				item.description = i["description"]
 				item.pubDate = i.published
-				item.guid = i["guid"]
+				item.rss = url
 				item.category = Channel.objects.get(title = i["category"])
 				item.save()
 			

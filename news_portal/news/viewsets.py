@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 from .models import Channel, Item
 from .serializers import ChannelSerializer, ItemSerializer
 
@@ -8,4 +8,6 @@ class ChannelAll(viewsets.ModelViewSet):
 
 class ItemAll(viewsets.ModelViewSet):
 	queryset = Item.objects.all()
-	serializer_class = ItemSerializer		
+	serializer_class = ItemSerializer
+	filter_backends = (filters.SearchFilter,)
+	search_fields = ('description', 'title')

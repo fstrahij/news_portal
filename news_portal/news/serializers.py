@@ -10,4 +10,7 @@ class ItemSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Item
 		fields = '__all__'
+		extra_kwargs = {
+			'url': {'lookup_field': 'category'}
+		}	
 			
