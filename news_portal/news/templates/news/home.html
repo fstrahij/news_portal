@@ -5,14 +5,10 @@
           <h1>News
           </h1>
           <ul v-for="item in news">
-          	<li >
-          		${item.title}          		
-          		
-          		${item.pubDate}
-          		<p v-html="item.description"/>
-          		${item.link}
-          		<hr>
-          	</li>
+          	<li >${item.title}</li>
+          	<li>${item.pubDate}</li>
+          	<li><p v-html="item.description"/></li>
+          	<li><a v-bind:href="item.link">${item.link}</a></li>
           </ul>
         </div>
     </div>
