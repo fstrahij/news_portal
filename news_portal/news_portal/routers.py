@@ -4,4 +4,4 @@ from news import viewsets
 router = routers.DefaultRouter()
 
 router.register(r'channels', viewsets.ChannelAll)
-router.register(r'items', viewsets.ItemAll)
+router.register(r'articles', viewsets.ArticleAll)

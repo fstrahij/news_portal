@@ -1,16 +1,13 @@
 from rest_framework import serializers
-from .models import Channel, Item
+from .models import Channel, Article
 
 class ChannelSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Channel
 		fields = '__all__'
 
-class ItemSerializer(serializers.ModelSerializer):
+class ArticleSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Item
+		model = Article
 		fields = '__all__'
-		extra_kwargs = {
-			'url': {'lookup_field': 'category'}
-		}	
 			

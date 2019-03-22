@@ -6,7 +6,7 @@ class Channel(models.Model):
 	description = models.TextField(null = True)
 	language = models.CharField(max_length = 10)
 
-class Item(models.Model):
+class Article(models.Model):
 	title = models.CharField(max_length = 100, primary_key = True)
 	link = models.URLField()
 	image = models.TextField(null = True)

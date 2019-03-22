@@ -11,7 +11,7 @@ new Vue({
 	},
 	methods: {
 		getItems: function() {
-			let api_url = '/api/items/';
+			let api_url = '/api/articles/';
 
 			if (this.search_term !== '' && this.search_term !== null) {
 				api_url += '?search='+this.search_term;
