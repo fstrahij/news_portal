@@ -1,5 +1,7 @@
 from django.core.management.base import BaseCommand
 from news.models import Channel, Item
+from datetime import datetime
+from bs4 import BeautifulSoup
 import feedparser
 
 class Command(BaseCommand):
@@ -20,9 +22,11 @@ class Command(BaseCommand):
 			for i in feed.entries:
 				item.title = i["title"]
 				item.link = i["link"]
-				item.description = i["description"]
-				item.pubDate = i.published
+				image = BeautifulSoup(i["description"], "html.parser").find('img')
+				item.image = image['src']
+				start = len(str(image)) + 2
+				item.description = i["description"][start:]
+				item.pubDate = datetime.strptime(i.published, '%a, %d %b %Y %H:%M:%S %z')
 				item.rss = url
 				item.category = Channel.objects.get(title = i["category"])
 				item.save()
-			

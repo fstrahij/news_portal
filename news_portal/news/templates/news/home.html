@@ -7,12 +7,13 @@
           	<input class="form-control" type="text" placeholder="Search" v-model="search_term" aria-label="Search" >
           	<button class="btn" v-on:click.prevent="getItems()" >Search</button>
           </div>
-          <ul v-for="item in news">
-          	<li >${item.title}</li>
-          	<li >${item.rss}</li>
-          	<li>${item.pubDate}</li>
-          	<li><p v-html="item.description"/></li>
-          	<li><a v-bind:href="item.link">${item.link}</a></li>
+          <ul v-for="article in news">
+          	<li >${article.title}</li>
+          	<li >${article.rss}</li>
+          	<li>${article.pubDate}</li>
+            <li><img v-bind:src="article.image"></li>
+          	<li>${article.description}</li>
+          	<li><a v-bind:href="article.link">${article.link}</a></li>
           </ul>
         </div>
     </div>

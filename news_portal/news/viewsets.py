@@ -7,7 +7,7 @@ class ChannelAll(viewsets.ModelViewSet):
 	serializer_class = ChannelSerializer
 
 class ItemAll(viewsets.ModelViewSet):
-	queryset = Item.objects.all()
+	queryset = Item.objects.all().order_by('-pubDate')
 	serializer_class = ItemSerializer
 	filter_backends = (filters.SearchFilter,)
 	search_fields = ('description', 'title')

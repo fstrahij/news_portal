@@ -7,9 +7,10 @@ class Channel(models.Model):
 	language = models.CharField(max_length = 10)
 
 class Item(models.Model):
-	title = models.CharField(max_length = 30, primary_key = True)
+	title = models.CharField(max_length = 100, primary_key = True)
 	link = models.URLField()
+	image = models.TextField(null = True)
 	description = models.TextField()
-	pubDate = models.CharField(max_length = 100)
+	pubDate = models.DateTimeField(null = True)
 	rss = models.TextField()
 	category = models.ForeignKey(Channel, on_delete = models.CASCADE)
