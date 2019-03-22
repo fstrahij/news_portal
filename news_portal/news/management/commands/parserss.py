@@ -8,7 +8,6 @@ class Command(BaseCommand):
 		channels = { "news", "show", "sport", "tech" }
 		channel = Channel()	
 		article = Article()
-		#self.stdout.write("Prije:")
 		for c in channels:			
 			url = "https://www.24sata.hr/feeds/" + c + ".xml"
 			feed = feedparser.parse(url)

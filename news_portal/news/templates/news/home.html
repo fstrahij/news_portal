@@ -2,19 +2,40 @@
 {% block content %}
 	<div id="starting">
         <div class="row">
-          <h1>News</h1>
-          <div class="form-inline">
-          	<input class="form-control" type="text" placeholder="Search" v-model="search_term" aria-label="Search" >
-          	<button class="btn" v-on:click.prevent="getItems()" >Search</button>
+          <nav class="navbar navbar-dark bg-dark ">
+          <a class="navbar-brand" href="#">NEWS</a>
+            <a class="navbar-nav" href="#" v-on:click="getArticles()">HOME</a>
+            <a class="navbar-nav" href="#" v-on:click="getCategory('Vijesti')">VIJESTI</a>
+            <a class="navbar-nav" href="#" v-on:click="getCategory('Show')">SHOW</a>
+            <a class="navbar-nav" href="#" v-on:click="getCategory('Sport')">SPORT</a>
+            <a class="navbar-nav" href="#" v-on:click="getCategory('Tech')">SCI/TECH</a>
+
+             <div class="form-inline">              
+              <input class="form-control" type="text" placeholder="Search" v-model="search_term" aria-label="Search" >
+              <button class="btn btn-success" id="search" v-on:click.prevent="getArticles()" >Search</button>
+            </div> 
+          </nav> 
+
+          <div class="pagination">
+            <button class="btn btn-light" v-on:click="getPrevious()">PREVIOUS</button>
+            <button class="btn btn-light" v-on:click="getNext()">NEXT</button>
           </div>
-          <ul v-for="article in news">
-          	<li >${article.title}</li>
-          	<li >${article.rss}</li>
-          	<li>${article.pubDate}</li>
-            <li><img v-bind:src="article.image"></li>
-          	<li>${article.description}</li>
-          	<li><a v-bind:href="article.link">${article.link}</a></li>
+          
+          <ul class="list-group" v-for="article in news">
+            <li class="list-group-item"> 
+              <h2> ${article.title} </h2>
+              ${article.rss}
+              <p class="date">${article.pubDate}</p>
+              <img id="art-image" width="60%" height="60%" v-bind:src="article.image"> 
+              <p class="art-description">${article.description}</p>
+              <a class="art-description" v-bind:href="article.link">Više o tome</a>
+            </li>
           </ul>
+          
+          <div class="pagination">
+            <button class="btn btn-light" v-on:click="getPrevious()">PREVIOUS</button>
+            <button class="btn btn-light" v-on:click="getNext()">NEXT</button>
+          </div>          
         </div>
     </div>
 {% endblock content %}
