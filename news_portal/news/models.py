@@ -9,8 +9,8 @@ class Channel(models.Model):
 class Article(models.Model):
 	title = models.CharField(max_length = 100, primary_key = True)
 	link = models.URLField()
-	image = models.TextField(null = True)
+	image = models.TextField()
 	description = models.TextField()
-	pubDate = models.DateTimeField(null = True)
+	pubDate = models.DateTimeField()
 	rss = models.TextField()
-	category = models.ForeignKey(Channel, on_delete = models.CASCADE)
+	category = models.CharField(max_length = 30)
