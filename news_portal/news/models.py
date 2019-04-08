@@ -7,8 +7,8 @@ class Channel(models.Model):
 	language = models.CharField(max_length = 10)
 
 class Article(models.Model):
-	title = models.CharField(max_length = 100, primary_key = True)
-	link = models.URLField()
+	title = models.CharField(max_length = 100)
+	link = models.URLField(primary_key = True)
 	image = models.TextField()
 	description = models.TextField()
 	pubDate = models.DateTimeField()
